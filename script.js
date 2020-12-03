@@ -42,3 +42,15 @@ function time() {
 };
 time();
 })
+
+var information;
+var hours;
+
+$(".saveBtn").on("click", function(){
+    information = $(this).siblings(".form-control").val();
+    console.log(information);
+    hours = $(this).siblings(".input-group-prepend").text();
+    console.log(hours);
+    localStorage.setItem(hours, JSON.stringify(information));
+
+  })
