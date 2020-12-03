@@ -3,11 +3,12 @@ $(document).ready(function () {
 $("#currentDay").text(moment().format('dddd') + ", " + moment().format("MMMM Do YYYY, h:mm:ss a"))
 // local storage
 $(".saveBtn").on("click", function () {
-    var info = $(this).parent(".form-control").val();
+    var info = $(this).parent().siblings("textarea").val();
     var time = $(this).siblings().attr("id");
     localStorage.setItem(info, time)
-    console.log(this);
+    console.log(info, time);
 });
+
 
 
 function time() {
@@ -15,6 +16,7 @@ function time() {
 
     $(".form-control").each(function () {
         var timeSlot = parseInt($(this).attr("id"));
+        console.log(timeSlot, currentHour);
         if (timeSlot < currentHour) {
             $(this).addClass("past");
             
