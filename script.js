@@ -3,8 +3,8 @@ $(document).ready(function () {
 $("#currentDay").text(moment().format('dddd') + ", " + moment().format("MMMM Do YYYY, h:mm:ss a"))
 // local storage
 $(".saveBtn").on("click", function () {
-    var info = $(this).siblings(".form-control").val();
-    var time = $(this).parent().attr("id");
+    var info = $(this).parent(".form-control").val();
+    var time = $(this).siblings().attr("id");
     localStorage.setItem(info, time)
     console.log(this);
 });
