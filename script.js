@@ -3,10 +3,11 @@ $(document).ready(function () {
 $("#currentDay").text(moment().format('dddd') + ", " + moment().format("MMMM Do YYYY, h:mm:ss a"))
 // local storage
 $(".saveBtn").on("click", function () {
-    var info = $(this).parent().siblings("textarea").val();
-    var time = $(this).siblings().attr("id");
-    localStorage.setItem(info, time)
-    console.log(info, time);
+    var input = $(this).parent().siblings("textarea");
+    var value = input.val();
+    var time = input.attr("id");
+    console.log(time, value, input);
+    localStorage.setItem(time, value)
 });
 
 $("#8oclock").val(localStorage.getItem("8oclock"));
